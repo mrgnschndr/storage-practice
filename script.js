@@ -16,9 +16,12 @@ let statesFile = getStates().then(states => {
 
 statesFile = getStates().then(states => {
     for (i = (states.states.length)/2; i < states.states.length; i++) {
-        let capital = (states.states[i].capital).toLowerCase();
-        delete states.states[i].capital;
-       
-        // localStorage.setItem(capital, lowerStates);
-    }
-});
+        let loc = states.states[i];
+        let capital = (loc.capital).toLowerCase();
+        delete loc.capital;
+        let lowerStates = JSON.stringify(loc).toLowerCase();
+        console.log(lowerStates);
+        localStorage.setItem(capital, lowerStates);
+        };
+    
+})
