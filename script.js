@@ -8,7 +8,8 @@ let statesFile = getStates().then(states => {
     for (i = 0; i < (states.states.length)/2; i++) {
         let stateName = states.states[i].name;
         delete states.states[i].name;
-        localStorage.setItem(stateName, states.states[i]);
+        let upperStates = JSON.stringify(states.states[i]).toUpperCase();
+        localStorage.setItem(stateName, upperStates);
     }
 });
 
